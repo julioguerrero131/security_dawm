@@ -10,7 +10,15 @@ var models = initModels( sequelize );
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
     
-  let usersCollection = await models.users.findAll({ })
+  /* 3. Uso del método findAll */
+  let usersCollection = await models.users.findAll({ 
+    /* 3.1. Including everything */
+    include: { all: true, nested: true },      
+    /* 3.2. Raw Queries */
+    raw: true,
+    nest: true,
+  })
+
   let rolesCollection = await models.roles.findAll({ })
   
   res.render('crud', { title: 'CRUD of users', usersArray: usersCollection, rolesArray: rolesCollection   });
