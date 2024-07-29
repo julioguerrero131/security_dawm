@@ -21,7 +21,11 @@ router.get('/', async function(req, res, next) {
 
   let rolesCollection = await models.roles.findAll({ })
   
-  res.render('crud', { title: 'CRUD of users', usersArray: usersCollection, rolesArray: rolesCollection   });
+  res.render('crud', { 
+    username:req.cookies['username'], 
+    title: 'CRUD of users', 
+    usersArray: usersCollection, rolesArray: rolesCollection   
+  });
    
 });
 

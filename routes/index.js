@@ -46,6 +46,15 @@ router.post("/login", async function (req, res, next) {
         /* 9. Compare passwordHash y userData.password que sean iguales. */
         if (passwordHash === userData.password) {
           /* 10. En caso de éxito, redirija a '/users' */
+
+          /* 1. Configuración de la expiración de la cookie */
+          const options = {
+            expires: new Date(Date.now() + 60 * 1000),
+          };
+
+          /* 2. Cree la cookie 'username' con la variable user y la configuración de options  */
+          res.cookie("username", username, options);
+
           res.redirect("/users");
         } else {
           /* 11. En caso de fallo, redirija a '/' */
