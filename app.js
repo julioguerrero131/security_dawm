@@ -15,6 +15,7 @@ var authorizationSession = require('./middleware/authorization_session');
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var tokenRouter = require("./routes/token")
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use('/users', authenticateSession, authorizationSession, usersRouter);
+app.use('/token', tokenRouter);
 
 
 // catch 404 and forward to error handler
