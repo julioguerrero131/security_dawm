@@ -40,10 +40,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 /* 2. Agregue el middleware al router */
-app.use('/users', authenticateSession, authorizationSession, usersRouter);
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use('/users', authenticateSession, authorizationSession, usersRouter);
 
 
 // catch 404 and forward to error handler
