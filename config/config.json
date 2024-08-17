@@ -20,5 +20,15 @@
     "host": "monorail.proxy.rlwy.net",
     "dialect": "mysql",
     "port": "18740"
+  },
+  "dialectOptions": {
+    "connectTimeout": 120000
+  },
+  "pool": {
+    "max": 3,
+    "min": 0,
+    "acquire": 60000,
+    "idle": 10000,
+    "evict": 1000
   }
 }
