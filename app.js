@@ -7,7 +7,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 /* 1. Módulo express-session */
-const session = require("cookie-session");
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 
