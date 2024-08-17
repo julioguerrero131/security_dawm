@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 /* 1. Módulo express-session */
-const session = require("express-session");
+const session = require("cookie-session");
 
 /* 1. Referencia a los middlewares */
 var authenticateSession = require("./middleware/authentication_session");
