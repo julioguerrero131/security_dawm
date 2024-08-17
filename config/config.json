@@ -19,7 +19,7 @@
     "database": "railway",
     "host": "junction.proxy.rlwy.net",
     "dialect": "mysql",
-    "port": "18740"
+    "port": "26116"
   },
   "dialectOptions": {
     "connectTimeout": 120000
