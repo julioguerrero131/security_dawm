@@ -10,15 +10,6 @@ var logger = require("morgan");
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 
-app.use(session({
-    cookie: { maxAge: 86400000 },
-    store: new MemoryStore({
-      checkPeriod: 86400000 // prune expired entries every 24h
-    }),
-    resave: false,
-    secret: 'keyboard cat'
-}))
-
 /* 1. Referencia a los middlewares */
 var authenticateSession = require("./middleware/authentication_session");
 var authorizationSession = require('./middleware/authorization_session');
@@ -28,6 +19,15 @@ var usersRouter = require("./routes/users");
 var tokenRouter = require("./routes/token")
 
 var app = express();
+
+app.use(session({
+  cookie: { maxAge: 86400000 },
+  store: new MemoryStore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  }),
+  resave: false,
+  secret: 'keyboard cat'
+}))
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
